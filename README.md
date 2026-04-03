@@ -5,6 +5,8 @@
 > This project is the second in a three-part portfolio series focused on identity, endpoint management, and security operations in a Microsoft cloud environment.
 
 ---
+> **Quick read:** See [Key Outcomes](#key-outcomes) for a summary, or explore the [docs](./docs) folder for full technical documentation.
+---
 
 ## Overview
 
