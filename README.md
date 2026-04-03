@@ -181,6 +181,12 @@ Microsoft Graph PowerShell authentication must be explicitly scoped to the corre
 ---
 
 ## Project Structure
+| Folder | Contents |
+|---|---|
+| [diagrams](./diagrams) | Architecture diagram |
+| [docs](./docs) | Phase 0 validation, production standard, repeatable workflow, policy decisions, automation design, and lessons learned |
+| [scripts](./scripts) | New-CloudEndpointVM.ps1 and Get-CloudEndpointStatus.ps1 |
+| [evidence](./evidence) | Screenshots and Graph reporting output |
 ```
 azure-cloud-endpoint-management/
 │
