@@ -143,11 +143,14 @@ The provisioning script successfully detected the existing endpoint and automati
 
 ![Provisioning Script Output](./evidence/provisioning-script-output.png)
 
+
 ### Both Devices in Intune
 
 Both endpoints are visible in Intune as corporate-owned, Intune-managed, and compliant Windows devices with current check-in timestamps.
 
 ![Both Devices Compliant](./evidence/intune-both-devices-compliant.png)
+
+
 
 ### Production Compliance Policy Detail
 
@@ -155,11 +158,14 @@ The CP-Windows-CloudEndpoint-Baseline policy evaluated successfully against both
 
 ![Compliance Policy Detail](./evidence/vm02-compliance-both-policies-compliant.png)
 
+
+
 ### Graph Reporting Output
 
 The Get-CloudEndpointStatus.ps1 script confirmed both devices as company-owned and managed through the Microsoft Graph API, with standard users associated as primary users following the endpoint handoff process.
 
 ![Graph Reporting Final Output](./evidence/graph-reporting-final-output.png)
+
 
 ---
 
