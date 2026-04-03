@@ -35,7 +35,7 @@ The company also wants to reduce manual effort in the provisioning process and b
 
 ## Project Architecture
 
-![Architecture Diagram](./diagrams/architecture-diagram.png)
+![Architecture Diagram](./diagrams/project2_architecture_v2.png)
 
 The environment is built around three connected layers.
 
@@ -137,35 +137,16 @@ The script supports operational validation after deployment, compliance reportin
 
 The following evidence demonstrates successful provisioning, enrollment, compliance evaluation, and Graph-based reporting across both pilot endpoints.
 
-### Provisioning Script Output
-
-The provisioning script successfully detected the existing endpoint and automatically named the second deployment vm-p2-winclient02, confirming that the auto-increment naming logic works as intended.
-
-![Provisioning Script Output](./evidence/provisioning-script-output.png)
-
-
-### Both Devices in Intune
-
-Both endpoints are visible in Intune as corporate-owned, Intune-managed, and compliant Windows devices with current check-in timestamps.
-
 ![Both Devices Compliant](./evidence/intune-both-devices-compliant.png)
 
-
-
-### Production Compliance Policy Detail
-
-The CP-Windows-CloudEndpoint-Baseline policy evaluated successfully against both endpoints, confirming that the production compliance standard applies consistently across the managed fleet.
-
-![Compliance Policy Detail](./evidence/vm02-compliance-both-policies-compliant.png)
-
-
-
-### Graph Reporting Output
-
-The Get-CloudEndpointStatus.ps1 script confirmed both devices as company-owned and managed through the Microsoft Graph API, with standard users associated as primary users following the endpoint handoff process.
-
-![Graph Reporting Final Output](./evidence/graph-reporting-final-output.png)
-
+| Evidence | Description |
+|---|---|
+| [Provisioning Script Output](./evidence/provisioning-script-output.png) | Auto-increment naming logic detects vm-p2-winclient01 and provisions vm-p2-winclient02 using the approved company standard |
+| [Compliance Policy Detail](./evidence/vm02-compliance-both-policies-compliant.png) | All six CP-Windows-CloudEndpoint-Baseline settings passing on vm-p2-winclient02 |
+| [Graph Reporting Output](./evidence/graph-reporting-final-output.png) | Both devices confirmed as company-owned and managed via Microsoft Graph API with standard users as primary owners |
+| [MDM Scope Configuration](./evidence/intune-mdm-scope-all.png) | Intune MDM user scope configured to All, enabling automatic enrollment for all eligible users |
+| [Pilot Group Members](./evidence/sg-cloud-endpoint-pilot-members.png) | SG-Cloud-Endpoint-Pilot group showing both devices in the controlled rollout scope |
+| [Device Sync Success](./evidence/vm02-intune-sync-success.png) | vm-p2-winclient02 confirming active management with Security, System, and Update policies received |
 
 ---
 
@@ -206,7 +187,7 @@ azure-cloud-endpoint-management/
 ├── README.md
 │
 ├── diagrams/
-│   └── architecture-diagram.png
+│   └── project2_architecture_v2.png
 │
 ├── docs/
 │   ├── phase0-preproduction-validation.md
@@ -221,24 +202,29 @@ azure-cloud-endpoint-management/
 │   └── Get-CloudEndpointStatus.ps1
 │
 └── evidence/
-    ├── provisioning-script-output.png
+    ├── graph-reporting-final-output.png
     ├── intune-both-devices-compliant.png
-    ├── intune-overview-2-devices.png
-    ├── vm02-compliance-both-policies-compliant.png
-    ├── vm02-intune-overview.png
-    ├── vm02-intune-sync-success.png
-    ├── vm02-entra-mdm-connection.png
-    ├── sg-cloud-endpoint-pilot-members.png
     ├── intune-mdm-scope-all.png
-    └── graph-reporting-final-output.png
+    ├── intune-overview-2-devices.png
+    ├── provisioning-script-output.png
+    ├── sg-cloud-endpoint-pilot-members.png
+    ├── vm01-compliance-both-policies-compliant.png
+    ├── vm01-entra-mdm-connection.png
+    ├── vm02-compliance-both-policies-compliant.png
+    ├── vm02-entra-mdm-connection.png
+    ├── vm02-intune-overview.png
+    └── vm02-intune-sync-success.png
 ```
-
 ---
 
 ## Author
 
-**Emmanuel Johnson**
-Technical Support Specialist transitioning into Systems Administration, Cloud Administration, and Endpoint Management
-[LinkedIn](https://www.linkedin.com/in/emmanuel-a-johnson)
+## Author
 
-This project is the second in a three-part portfolio series demonstrating production-minded cloud infrastructure, identity governance, endpoint management, and security operations in Microsoft Azure.
+**Emmanuel Johnson**
+
+IT professional with hands-on experience in Microsoft 365 administration, identity and access management, endpoint support, and cloud-focused systems projects involving Azure, Microsoft Entra ID, and Microsoft Intune.
+
+Let's Connect: [LinkedIn](https://www.linkedin.com/in/emmanuel-a-johnson) · Portfolio: [GitHub](https://github.com/EJCyber) · Email: emmanuel@ejohnsoncyber.com
+
+This project is the second in a three-part portfolio series demonstrating production-minded cloud infrastructure, identity governance, endpoint management, and security operations in Microsoft Azure. [View Project 1 — Azure Identity Governance](https://github.com/EJCyber/azure-identity-governance)
