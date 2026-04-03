@@ -8,9 +8,11 @@
 
 ## Overview
 
-This project extends the identity and access foundation built in Project 1 into endpoint deployment, device management, and compliance enforcement through Microsoft Intune. The goal was to design and validate a repeatable process that a real organization could use to deploy, manage, and govern cloud-hosted Windows endpoints in a consistent and secure way.
+This project demonstrates a production-minded approach to cloud endpoint management — deploying, enrolling, governing, and reporting on Azure-hosted Windows endpoints using Microsoft Entra ID, Microsoft Intune, and PowerShell automation.
 
-The project includes a pre-production validation phase, a production implementation phase, a documented repeatable deployment workflow, and a PowerShell and Microsoft Graph automation layer that supports both provisioning and operational reporting.
+The work is structured in three phases: a pre-production validation phase that surfaced real dependencies before any standard was written, a production implementation phase that turned those findings into a documented and repeatable deployment workflow, and an automation layer that supports both provisioning and operational reporting through Microsoft Graph.
+
+The goal was not to build a lab. The goal was to design something a real organization could actually use.
 
 ---
 
@@ -36,6 +38,8 @@ The company also wants to reduce manual effort in the provisioning process and b
 ## Project Architecture
 
 ![Architecture Diagram](./diagrams/project2_architecture_v2.png)
+
+*Four-layer architecture showing Azure infrastructure, Microsoft Entra ID and Intune management, PowerShell automation, and pilot-based policy targeting.*
 
 The environment is built around three connected layers.
 
