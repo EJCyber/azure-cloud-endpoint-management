@@ -52,3 +52,47 @@ Wait for the update to complete and confirm success before proceeding.
 Open Settings, go to Accounts, and click Access work or school. Click Connect, then select Join this device to Microsoft Entra ID from the alternate actions section at the bottom of the dialog.
 
 Sign in with the approved internal admin account:
+In my case it was - adm-manny@mannylabsacctgmail.onmicrosoft.com
+
+Complete the MFA prompt and confirm the join completes successfully. The device will prompt to confirm the organization before finalizing.
+
+## Step 6 — Confirm Intune enrollment
+
+After the Entra join completes, return to Settings, Accounts, Access work or school. Confirm that the connected entry now shows both the Entra ID connection and the Managed by Default Directory MDM connection.
+
+If only the Entra ID connection is present and the MDM connection is missing, click the connected entry to expand it and select Enroll only in device management. Sign in with the same internal admin account and complete the enrollment.
+
+Confirm a successful sync has occurred by clicking Info next to the MDM connection and reviewing the Device sync status section.
+
+## Step 7 — Add the device to the pilot assignment scope
+
+In Microsoft Entra admin center, navigate to Groups and open SG-Cloud-Endpoint-Pilot. Add the new device as a member of the group.
+
+This ensures the device will receive the CP-Windows-CloudEndpoint-Baseline compliance policy and the UR-Windows-CloudEndpoint-Baseline update ring.
+
+## Step 8 — Force sync and validate compliance
+
+Return to the VM and go to Settings, Accounts, Access work or school. Click the MDM connection entry, select Info, and click Sync. Wait for the sync to complete.
+
+In the Intune admin center, navigate to Devices, All devices, and open the new device. Confirm the compliance state shows Compliant. Open the Device compliance section and confirm the CP-Windows-CloudEndpoint-Baseline policy evaluates successfully with all settings passing.
+
+If the Defender security intelligence check shows Not Compliant, run the signature update command again and force another sync. Allow a few minutes for the compliance evaluation to reconcile.
+
+## Step 9 — Update primary user and device ownership
+
+In the Intune admin center, navigate to the device properties. Confirm that Device ownership is set to Corporate. If it shows Personal, change it to Corporate.
+
+Click Change primary user and assign the intended standard user who will be using this endpoint. This reflects the company endpoint handoff model and completes the device ownership record.
+
+## Step 10 — Validate through Graph reporting
+
+From the PowerShell Scripts folder, run the reporting script to confirm the device is visible in Intune through the Microsoft Graph API.
+```powershell
+.\Get-CloudEndpointStatus.ps1
+```
+
+Confirm the new device appears in the output with the correct primary user, company ownership, and managed status.
+
+## Step 11 — Record the device as production-ready
+
+Document the completed deployment including the device name, primary user, deployment date, compliance state, and any notes relevant to the deployment session. The device is now considered production-ready.
